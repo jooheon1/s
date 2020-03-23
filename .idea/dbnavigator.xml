@@ -32,7 +32,8 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="728e7f72-cab5-4eef-97d8-9de7c8fa482c">
-      <console name="seniorproject" type="STANDARD" schema="seniorproject" session="Main"><![CDATA[desc face_photo;]]></console>
+      <console name="seniorproject" type="STANDARD" schema="seniorproject" session="Main"><![CDATA[Hibernate: create table face_photo (private_key varchar(255) not null, img_name varchar(255) not null, img_url varchar(255) not null, primary key (private_key)) engine=MyISAM
+Hibernate: create table finger_print (private_key varchar(255) not null, img_name varchar(255) not null, img_url varchar(255) not null, primary key (private_key)) engine=MyISAM]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
