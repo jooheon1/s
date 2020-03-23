@@ -1,4 +1,4 @@
-package domain.photo;
+package com.trashteam.domain.photo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

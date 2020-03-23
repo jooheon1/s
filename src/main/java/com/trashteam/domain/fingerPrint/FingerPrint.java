@@ -1,4 +1,4 @@
-package domain.fingerPrint;
+package com.trashteam.domain.fingerPrint;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -16,11 +16,15 @@ public class FingerPrint {
     private String privateKey;
 
     @Column(length = 500, nullable = false)
-    private String fingerPrintPhotoUrl;
+    private String imgUrl;
+
+    @Column(length = 500, nullable = false)
+    private String imgName;
 
     @Builder
-    public FingerPrint(String privateKey, String fingerPrintPhotoUrl){
+    public FingerPrint(String privateKey, String imgUrl, String imgName){
         this.privateKey = privateKey;
-        this. fingerPrintPhotoUrl = fingerPrintPhotoUrl;
+        this.imgUrl = imgUrl;
+        this.imgName = imgName;
     }
 }

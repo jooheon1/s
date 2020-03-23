@@ -1,27 +1,43 @@
-package service.idCard;
+package com.trashteam.service.idCard;
 
-import domain.fingerPrint.FingerPrint;
-import domain.fingerPrint.FingerPrintRepository;
-import domain.photo.FacePhoto;
-import domain.photo.FacePhotoRepository;
+import com.trashteam.block.UserBlock;
+import com.trashteam.domain.fingerPrint.FingerPrint;
+import com.trashteam.domain.fingerPrint.FingerPrintRepository;
+import com.trashteam.domain.photo.FacePhoto;
+import com.trashteam.domain.photo.FacePhotoRepository;
+import com.trashteam.tool.GenerateKey;
+import com.trashteam.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.dto.FacePhotoResponseDto;
-import web.dto.FingerPrintResponseDto;
-import web.dto.IdCardSaveRequestDto;
 
 @RequiredArgsConstructor
 @Service
 public class IdCardService {
     private final FingerPrintRepository fingerPrintRepository;
     private final FacePhotoRepository facePhotoRepository;
+    private final GenerateKey generateKey;
 
     @Transactional
-    public void save(IdCardSaveRequestDto requestDto){
-        fingerPrintRepository.save(requestDto.toFingerPEntity());
-        facePhotoRepository.save(requestDto.toFacePEntity());
+    public UserBlock save(UserInformationSaveRequestDto requestDto){
+        requestDto.setFacePhotoPrivateKey(generateKey.getFacePhotoPrivateKey());
+        requestDto.setFingerPrintPrivateKey(generateKey.getFingerPrintPrivateKey());
+
+        return requestDto.userBlockObject();
     }
+
+    @Transactional
+    public void save(FingerPrintSaveRequestDto requestDto){
+        requestDto.setFingerPrintPrivateKey(generateKey.getFingerPrintPrivateKey());
+        fingerPrintRepository.save(requestDto.toEntity());
+    }
+
+    @Transactional
+    public void save(FacePhotoSaveRequestDto requestDto){
+        requestDto.setFacePhotoPrivateKey(generateKey.getFacePhotoPrivateKey());
+        facePhotoRepository.save(requestDto.toEntity());
+    }
+
 
     @Transactional
     public FacePhotoResponseDto facePhotoFindByPrivateKey(String facePhotoPrivateKey){

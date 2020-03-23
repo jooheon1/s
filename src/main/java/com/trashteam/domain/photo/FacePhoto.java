@@ -1,4 +1,4 @@
-package domain.photo;
+package com.trashteam.domain.photo;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -18,11 +18,15 @@ public class FacePhoto {
     private String privateKey;
 
     @Column(length = 500, nullable = false)
-    private String facePhotoUrl;
+    private String imgUrl;
+
+    @Column(length = 500, nullable = false)
+    private String imgName;
 
     @Builder
-    public FacePhoto(String privateKey, String facePhotoUrl){
+    public FacePhoto(String privateKey, String imgUrl, String imgName){
         this.privateKey = privateKey;
-        this.facePhotoUrl = facePhotoUrl;
+        this.imgUrl = imgUrl;
+        this.imgName = imgName;
     }
 }
