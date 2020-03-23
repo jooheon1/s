@@ -51,11 +51,11 @@ public class IdCardApiControllerTest {
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestDto, String.class);
 
         List<FacePhoto> all = photoRepository.findAll();
+        System.out.println("야!!!!!!!!!!!!!!!!!"+all.get(0).getImgName());
+        System.out.println(all.get(0).getImgUrl());
+        System.out.println(all.get(0).getPrivateKey());
         assertThat(all.get(0).getImgName()).isEqualTo(imgName);
         assertThat(all.get(0).getImgUrl()).isEqualTo(imgUrl);
         assertThat(all.get(0).getPrivateKey()).isEqualTo(all.get(0).getPrivateKey());
-        System.out.println(all.get(0).getImgName());
-        System.out.println(all.get(0).getImgUrl());
-        System.out.println(all.get(0).getPrivateKey());
     }
 }
