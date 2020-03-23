@@ -29,4 +29,3 @@ public class FacePhotoSaveRequestDtoTest{
         Assertions.assertThat(requestDto.getFacePhotoPrivateKey()).isEqualTo(generateKey.getFacePhotoPrivateKey());
     }
 }
-K

@@ -37,7 +37,7 @@ public class IdCardApiControllerTest {
 
     @Test
     public void 얼굴사진_등록되다() throws Exception{
-        //given
+        //givenK
         String imgUrl = "king-hung-min is jjang";
         String imgName = "KingHungMin";
         FacePhotoSaveRequestDto requestDto = FacePhotoSaveRequestDto.builder()

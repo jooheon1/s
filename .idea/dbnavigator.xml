@@ -23,13 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="728e7f72-cab5-4eef-97d8-9de7c8fa482c">
-        <schema name="information_schema" object-types="view, function, table, procedure" />
-        <schema name="mysql" object-types="function" />
-        <schema name="seniorproject" object-types="index, view, constraint, dataset trigger, function, table, column, procedure" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="728e7f72-cab5-4eef-97d8-9de7c8fa482c">
