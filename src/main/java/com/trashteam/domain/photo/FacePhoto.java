@@ -14,13 +14,13 @@ import javax.persistence.Id;
 public class FacePhoto {
 
     @Id
-    @Column(length = 500, nullable = false)
+    @Column(length = 255, nullable = false)
     private String privateKey;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 255, nullable = false)
     private String imgUrl;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 255, nullable = false)
     private String imgName;
 
     @Builder
