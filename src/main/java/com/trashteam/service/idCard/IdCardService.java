@@ -27,15 +27,16 @@ public class IdCardService {
     }
 
     @Transactional
-    public void save(FingerPrintSaveRequestDto requestDto){
-        requestDto.setFingerPrintPrivateKey(generateKey.getFingerPrintPrivateKey());
-        fingerPrintRepository.save(requestDto.toEntity());
+    public String save(FingerPrintSaveRequestDto requestDto){
+        requestDto.setPrivateKey(generateKey.getFingerPrintPrivateKey());
+        return fingerPrintRepository.save(requestDto.toEntity()).getPrivateKey();
     }
 
     @Transactional
-    public void save(FacePhotoSaveRequestDto requestDto){
-        requestDto.setFacePhotoPrivateKey(generateKey.getFacePhotoPrivateKey());
+    public long save(FacePhotoSaveRequestDto requestDto){
+        requestDto.setPrivateKey(generateKey.getFacePhotoPrivateKey());
         facePhotoRepository.save(requestDto.toEntity());
+        return 1l;
     }
 
 

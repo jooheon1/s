@@ -18,14 +18,14 @@ public class FacePhotoSaveRequestDtoTest{
     @Test
     public void save() throws Exception{
        FacePhotoSaveRequestDto requestDto = FacePhotoSaveRequestDto.builder()
-               .faceImgUrl("king")
-               .faceImgName("hungmin")
+               .imgUrl("king")
+               .imgName("hungmin")
                .build();
 
-       requestDto.setFacePhotoPrivateKey(generateKey.getFacePhotoPrivateKey());
+       requestDto.setPrivateKey(generateKey.getFacePhotoPrivateKey());
 
-        Assertions.assertThat(requestDto.getFaceImgName()).isEqualTo("hungmin");
-        Assertions.assertThat(requestDto.getFaceImgUrl()).isEqualTo("king");
-        Assertions.assertThat(requestDto.getFacePhotoPrivateKey()).isEqualTo(generateKey.getFacePhotoPrivateKey());
+        Assertions.assertThat(requestDto.getImgName()).isEqualTo("hungmin");
+        Assertions.assertThat(requestDto.getImgUrl()).isEqualTo("king");
+        Assertions.assertThat(requestDto.getPrivateKey()).isEqualTo(generateKey.getFacePhotoPrivateKey());
     }
 }

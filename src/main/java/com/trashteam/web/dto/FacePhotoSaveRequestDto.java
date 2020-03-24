@@ -9,21 +9,21 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class FacePhotoSaveRequestDto {
-    private String facePhotoPrivateKey;
-    private String faceImgUrl;
-    private String faceImgName;
+    private String privateKey;
+    private String imgUrl;
+    private String imgName;
 
     @Builder
-    public FacePhotoSaveRequestDto(String faceImgName, String faceImgUrl){
-        this.faceImgName = faceImgName;
-        this.faceImgUrl = faceImgUrl;
+    public FacePhotoSaveRequestDto(String imgName, String imgUrl){
+        this.imgName = imgName;
+        this.imgUrl = imgUrl;
     }
 
     public FacePhoto toEntity(){
         return FacePhoto.builder()
-                .imgName(faceImgName)
-                .imgUrl(faceImgUrl)
-                .privateKey(facePhotoPrivateKey)
+                .imgName(imgName)
+                .imgUrl(imgUrl)
+                .privateKey(privateKey)
                 .build();
     }
 }

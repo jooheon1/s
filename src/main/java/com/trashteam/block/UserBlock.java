@@ -10,20 +10,20 @@ public class UserBlock {
     private String name;
     private String address;
     private String residentNumber;
-    private String issueDate;
-    private String issuer;
+    private String publishDate;
+    private String publisher;
 
     @Builder
     public UserBlock(String fingerPrintPrivateKey, String facePhotoPrivateKey,
                      String name, String address, String residentNumber,
-                     String issuer, String issueDate){
+                     String publisher, String publishDate){
         this.facePhotoPrivateKey = facePhotoPrivateKey;
         this.fingerPrintPrivateKey = fingerPrintPrivateKey;
         this.name = name;
         this.address = address;
         this.residentNumber = residentNumber;
-        this.issueDate=issueDate;
-        this.issuer=issuer;
+        this.publishDate =publishDate;
+        this.publisher = publisher;
 
     }
 

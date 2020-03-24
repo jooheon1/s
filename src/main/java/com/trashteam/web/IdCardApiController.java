@@ -1,5 +1,6 @@
 package com.trashteam.web;
 
+import com.trashteam.block.UserBlock;
 import com.trashteam.service.idCard.IdCardService;
 import com.trashteam.web.dto.FacePhotoSaveRequestDto;
 import com.trashteam.web.dto.FingerPrintSaveRequestDto;
@@ -15,15 +16,17 @@ public class IdCardApiController {
    private final IdCardService idCardService;
 
     @PostMapping("/api/idCard/user")
-    public void saveUser(@RequestBody UserInformationSaveRequestDto requestDto){
-        idCardService.save(requestDto);
-    }
+    public UserBlock saveUser(@RequestBody UserInformationSaveRequestDto requestDto){
+        return idCardService.save(requestDto); }
 
     @PostMapping("/api/idCard/fingerPrint")
-    public void saveFingerPrint(@RequestBody FingerPrintSaveRequestDto requestDto){idCardService.save(requestDto); }
+    public String saveFingerPrint(@RequestBody FingerPrintSaveRequestDto requestDto){
+        return idCardService.save(requestDto); }
 
     @PostMapping("/api/idCard/facePhoto")
-    public void saveFacePhoto(@RequestBody FacePhotoSaveRequestDto requestDto){
+    public long saveFacePhoto(@RequestBody FacePhotoSaveRequestDto requestDto){
+        System.out.println(requestDto.getImgName());
         idCardService.save(requestDto);
+        return 1l;
     }
 }

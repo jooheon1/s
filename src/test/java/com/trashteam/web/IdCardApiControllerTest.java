@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -37,12 +38,12 @@ public class IdCardApiControllerTest {
 
     @Test
     public void 얼굴사진_등록되다() throws Exception{
-        //givenK
+        //given
         String imgUrl = "king-hung-min is jjang";
         String imgName = "KingHungMin";
         FacePhotoSaveRequestDto requestDto = FacePhotoSaveRequestDto.builder()
-                .faceImgName(imgName)
-                .faceImgUrl(imgUrl)
+                .imgName(imgName)
+                .imgUrl(imgUrl)
                 .build();
 
         String url = "http://localhost:" + port + "/api/idCard/facePhoto";
@@ -50,12 +51,13 @@ public class IdCardApiControllerTest {
         //when
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestDto, String.class);
 
+        //then
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         List<FacePhoto> all = photoRepository.findAll();
-        System.out.println("야!!!!!!!!!!!!!!!!!"+all.get(0).getImgName());
-        System.out.println(all.get(0).getImgUrl());
-        System.out.println(all.get(0).getPrivateKey());
         assertThat(all.get(0).getImgName()).isEqualTo(imgName);
         assertThat(all.get(0).getImgUrl()).isEqualTo(imgUrl);
         assertThat(all.get(0).getPrivateKey()).isEqualTo(all.get(0).getPrivateKey());
+
+        System.out.println(all.get(0).getPrivateKey());
     }
 }

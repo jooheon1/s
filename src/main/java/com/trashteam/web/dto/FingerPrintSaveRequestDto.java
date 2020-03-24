@@ -9,21 +9,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FingerPrintSaveRequestDto {
 
-    private String fingerPrintPrivateKey;
-    private String fingerPrintImgUrl;
-    private String fingerPrintImgName;
+    private String privateKey;
+    private String imgUrl;
+    private String imgName;
 
     @Builder
-    public FingerPrintSaveRequestDto(String fingerPrintImgName, String fingerPrintImgUrl){
-        this.fingerPrintImgName = fingerPrintImgName;
-        this.fingerPrintImgUrl = fingerPrintImgUrl;
+    public FingerPrintSaveRequestDto(String imgName, String imgUrl){
+        this.imgName = imgName;
+        this.imgUrl = imgUrl;
     }
 
     public FingerPrint toEntity(){
         return FingerPrint.builder()
-                .imgName(fingerPrintImgName)
-                .imgUrl(fingerPrintImgUrl)
-                .privateKey(fingerPrintPrivateKey)
+                .imgName(imgName)
+                .imgUrl(imgUrl)
+                .privateKey(privateKey)
                 .build();
     }
 }

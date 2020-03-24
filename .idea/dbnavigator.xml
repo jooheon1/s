@@ -27,7 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="728e7f72-cab5-4eef-97d8-9de7c8fa482c">
-      <console name="seniorproject" type="STANDARD" schema="seniorproject" session="Main" />
+      <console name="seniorproject" type="STANDARD" schema="seniorproject" session="Main"><![CDATA[select private_key from face_photo;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

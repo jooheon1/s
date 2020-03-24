@@ -14,19 +14,19 @@ public class UserInformationSaveRequestDto {
     private String residentNumber;
     private String fingerPrintPrivateKey;
     private String facePhotoPrivateKey;
-    private String issueDate;
-    private String issuer;
+    private String publishDate;
+    private String publisher;
 
 
     @Builder
     public UserInformationSaveRequestDto(String name, String address, String residentNumber,
-                                         String issueDate, String issuer)
+                                         String publishDate, String publisher)
     {
         this.name=name;
         this.address=address;
         this.residentNumber=residentNumber;
-        this.issueDate=issueDate;
-        this.issuer=issuer;
+        this.publishDate = publishDate;
+        this.publisher = publisher;
     }
 
     public UserBlock userBlockObject(){
@@ -36,8 +36,8 @@ public class UserInformationSaveRequestDto {
                 .address(address)
                 .name(name)
                 .residentNumber(residentNumber)
-                .issueDate(issueDate)
-                .issuer(issuer)
+                .publishDate(publishDate)
+                .publisher(publisher)
                 .build();
     }
 }
