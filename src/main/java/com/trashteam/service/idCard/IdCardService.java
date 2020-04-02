@@ -22,21 +22,21 @@ public class IdCardService {
     public UserBlock save(UserInformationSaveRequestDto requestDto){
         requestDto.setFacePhotoPrivateKey(generateKey.getFacePhotoPrivateKey());
         requestDto.setFingerPrintPrivateKey(generateKey.getFingerPrintPrivateKey());
-
         return requestDto.userBlockObject();
     }
 
     @Transactional
-    public String save(FingerPrintSaveRequestDto requestDto){
+    public long save(FingerPrintSaveRequestDto requestDto){
         requestDto.setPrivateKey(generateKey.getFingerPrintPrivateKey());
-        return fingerPrintRepository.save(requestDto.toEntity()).getPrivateKey();
+        fingerPrintRepository.save(requestDto.toEntity());
+        return 0;
     }
 
     @Transactional
     public long save(FacePhotoSaveRequestDto requestDto){
         requestDto.setPrivateKey(generateKey.getFacePhotoPrivateKey());
-        facePhotoRepository.save(requestDto.toEntity());
-        return 1l;
+        facePhotoRepository.save(requestDto.toEntity()).getPrivateKey();
+        return 0;
     }
 
 

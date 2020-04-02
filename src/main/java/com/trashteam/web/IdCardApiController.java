@@ -17,16 +17,16 @@ public class IdCardApiController {
 
     @PostMapping("/api/idCard/user")
     public UserBlock saveUser(@RequestBody UserInformationSaveRequestDto requestDto){
-        return idCardService.save(requestDto); }
+        return idCardService.save(requestDto);
+    }
 
     @PostMapping("/api/idCard/fingerPrint")
-    public String saveFingerPrint(@RequestBody FingerPrintSaveRequestDto requestDto){
-        return idCardService.save(requestDto); }
+    public long saveFingerPrint(@RequestBody FingerPrintSaveRequestDto requestDto){
+        return idCardService.save(requestDto);
+    }
 
     @PostMapping("/api/idCard/facePhoto")
     public long saveFacePhoto(@RequestBody FacePhotoSaveRequestDto requestDto){
-        System.out.println(requestDto.getImgName());
-        idCardService.save(requestDto);
-        return 1l;
+        return idCardService.save(requestDto);
     }
 }

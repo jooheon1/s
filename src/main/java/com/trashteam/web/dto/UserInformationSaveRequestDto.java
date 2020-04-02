@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class UserInformationSaveRequestDto {
 
     private String name;
-    private String address;
+    private String addressInfo;
     private String residentNumber;
     private String fingerPrintPrivateKey;
     private String facePhotoPrivateKey;
@@ -19,11 +19,11 @@ public class UserInformationSaveRequestDto {
 
 
     @Builder
-    public UserInformationSaveRequestDto(String name, String address, String residentNumber,
+    public UserInformationSaveRequestDto(String name, String addressInfo, String residentNumber,
                                          String publishDate, String publisher)
     {
         this.name=name;
-        this.address=address;
+        this.addressInfo = addressInfo;
         this.residentNumber=residentNumber;
         this.publishDate = publishDate;
         this.publisher = publisher;
@@ -33,7 +33,7 @@ public class UserInformationSaveRequestDto {
         return UserBlock.builder()
                 .facePhotoPrivateKey(facePhotoPrivateKey)
                 .fingerPrintPrivateKey(fingerPrintPrivateKey)
-                .address(address)
+                .addressInfo(addressInfo)
                 .name(name)
                 .residentNumber(residentNumber)
                 .publishDate(publishDate)
