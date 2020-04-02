@@ -4,5 +4,9 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.senierproject.tc130.main" target="1.8" />
+      <module name="com.senierproject.tc130.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
