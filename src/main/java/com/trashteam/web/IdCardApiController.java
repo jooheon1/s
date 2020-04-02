@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//URL 매핑 컨트롤러
 @RequiredArgsConstructor
 @RestController
 public class IdCardApiController {

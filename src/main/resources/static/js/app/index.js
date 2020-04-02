@@ -6,7 +6,7 @@ var main = {
         });
 
         $('#btn-update').on('click', function () {
-            _this.update();
+            _this.load();
         });
 
         $('#btn-delete').on('click', function () {
@@ -32,7 +32,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
-    update : function () {
+    load : function () {
         var data = {
             title: $('#title').val(),
             content: $('#content').val()
